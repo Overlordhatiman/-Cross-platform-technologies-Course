@@ -1,0 +1,79 @@
+Compiled from "Main.java"
+public class Main {
+  public Main();
+    Code:
+       0: aload_0
+       1: invokespecial #8                  // Method java/lang/Object."<init>":()V
+       4: return
+
+  public static void main(java.lang.String[]);
+    Code:
+       0: getstatic     #16                 // Field java/lang/System.out:Ljava/io/PrintStream;
+       3: ldc           #22                 // String Group: 535st1
+       5: invokevirtual #24                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+       8: getstatic     #16                 // Field java/lang/System.out:Ljava/io/PrintStream;
+      11: ldc           #30                 // String Student: Kapinos Daneel Romanovich
+      13: invokevirtual #24                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+      16: getstatic     #16                 // Field java/lang/System.out:Ljava/io/PrintStream;
+      19: ldc           #32                 // String Option: 7
+      21: invokevirtual #24                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+      24: bipush        9
+      26: anewarray     #34                 // class java/lang/String
+      29: dup
+      30: iconst_0
+      31: ldc           #36                 // String xx     xx xx xx         xx xx\t \t
+      33: aastore
+      34: dup
+      35: iconst_1
+      36: ldc           #38                 // String xx    xx  xx   xx       xx  xx  \t
+      38: aastore
+      39: dup
+      40: iconst_2
+      41: ldc           #40                 // String xx   xx   xx      xx    xx   xx \t
+      43: aastore
+      44: dup
+      45: iconst_3
+      46: ldc           #42                 // String xx  xx    xx        xx  xx  xx
+      48: aastore
+      49: dup
+      50: iconst_4
+      51: ldc           #44                 // String xxxx      xx        xx  xx xx\t\t
+      53: aastore
+      54: dup
+      55: iconst_5
+      56: ldc           #46                 // String xx xx     xx        xx  xx  xx\t \t
+      58: aastore
+      59: dup
+      60: bipush        6
+      62: ldc           #48                 // String xx  xx    xx     xx     xx   xx \t
+      64: aastore
+      65: dup
+      66: bipush        7
+      68: ldc           #50                 // String xx   xx   xx   xx       xx    xx \t
+      70: aastore
+      71: dup
+      72: bipush        8
+      74: ldc           #52                 // String xx    xx  xx xx         xx     xx \t
+      76: aastore
+      77: astore_1
+      78: aload_1
+      79: dup
+      80: astore        5
+      82: arraylength
+      83: istore        4
+      85: iconst_0
+      86: istore_3
+      87: goto          105
+      90: aload         5
+      92: iload_3
+      93: aaload
+      94: astore_2
+      95: getstatic     #16                 // Field java/lang/System.out:Ljava/io/PrintStream;
+      98: aload_2
+      99: invokevirtual #24                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+     102: iinc          3, 1
+     105: iload_3
+     106: iload         4
+     108: if_icmplt     90
+     111: return
+}
