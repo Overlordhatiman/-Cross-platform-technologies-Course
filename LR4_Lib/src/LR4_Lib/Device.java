@@ -5,7 +5,10 @@
  */
 package LR4_Lib;
 
+import java.util.Date;
 import java.util.Scanner;
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  *
@@ -23,6 +26,21 @@ public class Device {
             System.out.println("Input OnOff");
             this.OnOff = in.nextBoolean();
         }
+    }
+    
+     public String StartDev(Date _newData)   throws InterruptedException {
+        TimerTask task = new TimerTask() {
+            public void run() {
+                OnOff = true;
+                System.out.println("Устройсвто "+ Name +" включено в " + new Date());
+                cancel();
+            }
+        };
+
+        Timer timer = new Timer("Timer");
+
+        timer.schedule (task, _newData);
+        return "Будет включен "+ _newData;
     }
 
     public String getName() {

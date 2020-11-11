@@ -13,6 +13,8 @@ import LR4_Lib.Shower;
 import LR4_Lib.Toilet;
 import LR4_Lib.Washbasin;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Scanner;
 
 /**
@@ -52,7 +54,45 @@ public class Manager implements IDevice{
         }        
     }
     
-    void MainMenu()
+    public Date getTransformDate() {
+        Date d=new Date();
+        in = new Scanner(System.in);
+        System.out.print("Input a number: ");
+        int H = in.nextInt();
+        System.out.print("Input a number: ");
+        int M = in.nextInt();
+        return TransformDate(d,H,M);
+    }
+    
+    public Date TransformDate(Date d, int newH,int newM) {
+        Calendar c = Calendar.getInstance();
+        c.setTime(d);
+        if(newH<d.getHours()){
+            c.add(Calendar.DATE, 1);
+            d= c.getTime();
+            d.setSeconds(0);
+        }
+        else if ((newH==d.getHours())){
+            if(newM<=d.getMinutes()){
+                c.add(Calendar.DATE, 1);
+                d= c.getTime();
+                d.setSeconds(0);
+            }
+            else {
+                d.setHours(newH);
+                d.setMinutes(newM);
+                d.setSeconds(0);
+            }
+        }
+        else {
+            d.setHours(newH);
+            d.setMinutes(newM);
+            d.setSeconds(0);
+        }
+        return d;
+    }
+    
+    void MainMenu() throws InterruptedException
     {
         in = new Scanner(System.in);
         System.out.println("Input number 1 - Add 2 - Remove 3 - Change");
@@ -81,6 +121,7 @@ public class Manager implements IDevice{
                         b = in.nextInt();
                         
                         d = new Bath(a,b);
+                        d.StartDev(getTransformDate());
                         Add(d);
                         break;
                     case 2:
@@ -90,6 +131,7 @@ public class Manager implements IDevice{
                         b = in.nextInt();
                         
                         d = new Shower(b, a);
+                        d.StartDev(getTransformDate());
                         Add(d);
                         break;
                     case 3:
@@ -99,6 +141,7 @@ public class Manager implements IDevice{
                         b = in.nextInt();
                         
                         d = new Toilet(b, a);
+                        d.StartDev(getTransformDate());
                         Add(d);
                         break;
                     case 4:                        
@@ -108,6 +151,7 @@ public class Manager implements IDevice{
                         b = in.nextInt();
                         
                         d = new HydroMassage(a, b);
+                        d.StartDev(getTransformDate());
                         Add(d);
                         break;
                     case 5:
@@ -117,6 +161,7 @@ public class Manager implements IDevice{
                         b = in.nextInt();
                         
                         d = new Washbasin(b, a);
+                        d.StartDev(getTransformDate());
                         Add(d);
                         break;
                 }
@@ -143,6 +188,7 @@ public class Manager implements IDevice{
                         b = in.nextInt();
                         
                         d = new Bath(a, b);
+                        d.StartDev(getTransformDate());
                         Change(pos, d);
                         break;
                     case 2:
@@ -152,6 +198,7 @@ public class Manager implements IDevice{
                         b = in.nextInt();
                         
                         d = new Shower(b,a);
+                        d.StartDev(getTransformDate());
                         Change(pos, d);
                         break;
                     case 3:
@@ -161,6 +208,7 @@ public class Manager implements IDevice{
                         b = in.nextInt();
                         
                         d = new Toilet(b, a);
+                        d.StartDev(getTransformDate());
                         Change(pos, d);
                         break;
                     case 4:
@@ -170,6 +218,7 @@ public class Manager implements IDevice{
                         b = in.nextInt();
                         
                         d = new HydroMassage(a, b);
+                        d.StartDev(getTransformDate());
                         Change(pos, d);
                         break;
                     case 5:
@@ -179,6 +228,7 @@ public class Manager implements IDevice{
                         b = in.nextInt();
                         
                         d = new Washbasin(b, a);
+                        d.StartDev(getTransformDate());
                         Change(pos, d);
                         break;
                 }
